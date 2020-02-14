@@ -1,0 +1,18 @@
+event_category_index:
+    path:     /
+    defaults: { _controller: "AppBundle:ECategory:index" }
+    methods:  GET
+
+event_category_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:ECategory:new" }
+    methods:  [GET, POST]
+
+event_category_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:ECategory:edit" }
+    methods:  [GET, POST]
+
+event_category_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:ECategory:delete" }

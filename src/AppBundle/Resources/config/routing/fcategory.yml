@@ -1,0 +1,18 @@
+fondations_category_index:
+    path:     /
+    defaults: { _controller: "AppBundle:FCategory:index" }
+    methods:  GET
+
+fondations_category_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:FCategory:new" }
+    methods:  [GET, POST]
+
+fondations_category_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:FCategory:edit" }
+    methods:  [GET, POST]
+
+fondations_category_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:FCategory:delete" }

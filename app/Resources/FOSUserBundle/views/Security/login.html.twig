@@ -1,0 +1,20 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% block fos_user_content %}
+<!-- breadcrumb start -->
+<div class="breadcrumb-area pt-240 pb-125" style="background-image:url(assets/img/bg/breadcrumb.jpg);" data-overlay="5">
+    <div class="container">
+        <div class="breadcrumb-text text-center z-index">
+            <h2>Login</h2>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb end -->
+<!-- volunter start -->
+<div class="become-volunter-area gray-bg ptb-100">
+    <div class="container">
+
+    {{ include('@FOSUser/Security/login_content.html.twig') }}
+    </div>
+</div>
+{% endblock fos_user_content %}

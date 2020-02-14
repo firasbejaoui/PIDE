@@ -1,0 +1,84 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block body %}
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Event Update</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="{{ path('adminhomepage') }}">Home</a></li>
+                            <li class="breadcrumb-item active">Event</li>
+                        </ol>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- left column -->
+                    <div class="col-md-12">
+                        <!-- general form elements -->
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">Update Event</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <!-- form start -->
+                            {{ form_start(edit_form) }}
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label>{{ form_label(edit_form.noun) }}</label>
+                                    {{ form_widget(edit_form.noun,{'attr':{'class':'form-control' }}) }}
+                                </div>
+                                <div class="form-group">
+                                    <label>{{ form_label(edit_form.description) }}</label>
+                                    {{ form_widget(edit_form.description,{'attr':{'class':'form-control' }}) }}
+                                </div>
+                                <div class="form-group">
+                                    <label>{{ form_label(edit_form.date) }}</label>
+                                    {{ form_widget(edit_form.date,{'attr':{'class':'form-control' }}) }}
+                                </div>
+                                <div class="form-group">
+                                    <label>{{ form_label(edit_form.foundation) }}</label>
+                                    {{ form_widget(edit_form.foundation,{'attr':{'class':'form-control' }}) }}
+                                </div>
+                                <div class="form-group">
+                                    <label>Photo</label>
+                                    <div class="custom-file">
+                                        {{ form_widget(edit_form.imageFile,{'attr':{'class':'custom-file-input' }}) }}
+                                        <label class="custom-file-label" for="customFile">Choose file</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Category</label>
+                                    {{ form_widget(edit_form.categorie,{'attr':{'class':'form-control' }}) }}
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <input type="submit" class="btn btn-primary" value="Update" />
+                            </div>
+                            {{ form_end(edit_form) }}
+
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script>
+        $('.select2bs4').select2({
+            theme: 'bootstrap4'
+        })
+    </script>
+{% endblock %}

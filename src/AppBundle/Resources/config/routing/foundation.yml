@@ -1,0 +1,18 @@
+foundation_index:
+    path:     /
+    defaults: { _controller: "AppBundle:Foundation:index" }
+    methods:  GET
+
+foundation_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Foundation:new" }
+    methods:  [GET, POST]
+
+foundation_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:Foundation:edit" }
+    methods:  [GET, POST]
+
+foundation_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:Foundation:delete" }

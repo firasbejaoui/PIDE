@@ -1,0 +1,12 @@
+app_event_category:
+  resource: "@AppBundle/Resources/config/routing/ecategory.yml"
+  prefix:   /event_category
+app_foundation_category:
+  resource: "@AppBundle/Resources/config/routing/fcategory.yml"
+  prefix:   /foundation_category
+app_event:
+  resource: "@AppBundle/Resources/config/routing/event.yml"
+  prefix:   /event
+app_foundation:
+  resource: "@AppBundle/Resources/config/routing/foundation.yml"
+  prefix:   /foundation
