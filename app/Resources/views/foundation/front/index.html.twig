@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <!-- DataTables -->
+    <link rel="stylesheet" href="{{ asset('backoffice/plugins/datatables-bs4/css/dataTables.bootstrap4.css') }}">
+{% endblock %}
+
+{% block body %}
+
+    <!-<div class="breadcrumb-area pt-240 pb-125" style="background-image:url(assets/img/bg/breadcrumb.jpg);" data-overlay="5">
+    <div class="container">
+        <div class="breadcrumb-text text-center z-index">
+            <h2>Foundations</h2>
+        </div>
+    </div>
+</div>
+    <!-- breadcrumb end -->
+    <!-- volunter start -->
+    <div class="volunter-area pt-120 pb-90">
+        <div class="container">
+            <div class="section-title text-center mb-75">
+                <h2>Foundations</h2>
+                <p class="section-2">There are many variations of azer duskam of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour,</p>
+            </div>
+            <div class="row">
+
+                {% for foundation in foundations %}
+                    <div class="col-md-6">
+                        <div class="event-img-info mb-30">
+                            <img src="{{ vich_uploader_asset(foundation, 'imageFile') }}" alt="">
+                            <div class="event-info">
+                                <h3><a href="{{path('show_foundation',{'id':foundation.id})}}">{{ foundation.noun }}</a></h3>
+                                <div class="event-time-date">
+                                    <span><i class="bi bi-calendar"></i>{{ foundation.categorie }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="page-pagintion mt-20">
+                        <ul>
+                            <li>
+                                <a href="#">01</a>
+                            </li>
+                            <li class="active">
+                                <a href="#">02</a>
+                            </li>
+                            <li>
+                                <a href="#">03</a>
+                            </li>
+                            <li>
+                                <a href="#">04</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>- Content Wrapper. Contains page content -->
+
+{% endblock %}
+
+{% block javascripts %}
+    <!-- DataTables -->
+    <script src="{{ asset('backoffice/plugins/datatables/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('backoffice/plugins/datatables-bs4/js/dataTables.bootstrap4.js') }}"></script>
+
+{% endblock %}

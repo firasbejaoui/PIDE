@@ -1,0 +1,9 @@
+showEvents:
+    path:     /show_events
+    defaults: { _controller: "AppBundle:Event:indexFront" }
+show_infos:
+    path:     /show_infos/{id}
+    defaults: { _controller: "AppBundle:Event:showEvent" }
+participate:
+    path:     /participate/{id}
+    defaults: { _controller: "AppBundle:Event:particper" }

@@ -16,3 +16,8 @@ event_edit:
 event_delete:
     path:     /{id}/delete
     defaults: { _controller: "AppBundle:Event:delete" }
+
+event_participants:
+    path:     /participants
+    defaults: { _controller: "AppBundle:Event:participants" }
+    methods:  GET

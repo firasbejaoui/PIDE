@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Foundation;
+use AppBundle\Entity\Membre;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -85,6 +86,98 @@ class FoundationController extends Controller
 
 
         return $this->redirectToRoute('foundation_index');
+    }
+
+    public function showFoundationsAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $foundations = $em->getRepository('AppBundle:Foundation')->findAll();
+
+        return $this->render('foundation/front/index.html.twig', array(
+            'foundations' => $foundations,
+        ));
+    }
+
+    public function showFoundationAction(Foundation $foundation)
+    {
+        $ismember=false;
+        $em=$this->getDoctrine()->getManager() ;
+        $user=$this->getUser();
+        if($user!=null)
+        {
+            $member=$this->getDoctrine()->getRepository(Membre::class)->findOneBy(array(
+                'user'=>$user,
+                'foundation'=>$foundation,
+            ));
+            if ($member!=null)
+                $ismember=true;
+        }
+
+        $members=$this->getDoctrine()->getRepository(Membre::class)->findBy(array(
+            'foundation'=>$foundation
+        ));
+        return $this->render('foundation/front/foundation.html.twig',array(
+            'foundation'=>$foundation,
+            'nbr'=>count($members),
+            'ismember'=> $ismember,
+            'member'=>$member
+        ));
+    }
+
+    public function joinAction(Foundation $foundation)
+    {
+        $user= $this->getUser();
+        $em=$this->getDoctrine()->getManager();
+        if($user!=null){
+            $membres=$this->getDoctrine()->getRepository(Membre::class)->findOneBy(array(
+                'user'=>$user,
+                'foundation'=>$foundation,
+            ));
+            if($membres!=null)
+            {
+
+                $em->remove($membres);
+                $ismembre=false;
+            }
+            else{
+                $membre= new Membre();
+                $membre->setUser($user);
+                $membre->setFoundation($foundation);
+                $membre->setStatus(false);
+                $em->persist($membre);
+                $ismembre=true;
+            }
+
+            $em->flush();
+
+            return $this->redirectToRoute('show_foundation',array(
+                'id'=>$foundation->getId(),
+            ));
+
+        } else{
+
+            return $this->redirectToRoute('fos_user_security_login');
+        }
+
+    }
+
+    public function membresAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $membres = $em->getRepository(Membre::class)->findAll();
+
+        return $this->render('foundation/members.html.twig', array(
+            'membres' => $membres,
+        ));
+    }
+
+    public function approveAction(Membre $membre)
+    {
+        $membre->setStatus(true);
+        $this->getDoctrine()->getManager()->flush();
+        return $this->redirectToRoute('show_members');
     }
 
 }

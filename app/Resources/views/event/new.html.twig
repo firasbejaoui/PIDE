@@ -32,7 +32,7 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-    {{ form_start(form) }}
+    {{ form_start(form,{attr:{'id':'myForm'}}) }}
                         <div class="card-body">
                             <div class="form-group">
                                 <label>{{ form_label(form.noun) }}</label>
@@ -63,7 +63,7 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <input type="submit" class="btn btn-primary" value="Create" />
+                            <input onclick="onClick(event)" type="submit" class="btn btn-primary" value="Create" />
                         </div>
     {{ form_end(form) }}
 
@@ -79,6 +79,28 @@
     <script>
         $('.select2bs4').select2({
             theme: 'bootstrap4'
-        })
+        });
+
+        function onClick(event) {
+            event.preventDefault();
+            var date = new Date();
+            var currentMonth=parseInt($('#appbundle_event_date_month').val(),10);
+            var currentDay=parseInt($('#appbundle_event_date_day').val(),10);
+            var currentYear=parseInt($('#appbundle_event_date_year').val(),10);
+            if(currentDay+currentMonth*30+currentYear*365>date.getDate()+date.getMonth()*30+date.getFullYear()*365)
+            {
+                $('#myForm').submit();
+            }
+            else
+            {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Invalid Date',
+                })
+            }
+
+        }
     </script>
+
 {% endblock %}

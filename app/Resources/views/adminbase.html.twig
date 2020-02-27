@@ -197,6 +197,12 @@
                                     <p>View Events</p>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{ path('event_participants') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Participants List</p>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li class="nav-item has-treeview">
@@ -241,6 +247,12 @@
                                 <a href="{{ path('foundation_index') }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>View Foundations</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ path('show_members') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Members</p>
                                 </a>
                             </li>
                         </ul>
@@ -328,6 +340,7 @@
 
 <!-- bs-custom-file-input -->
 <script src="{{ asset('backoffice/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
+<script src="{{ asset('assets/js/sweetalert.js') }}"></script>
 {% block javascripts %}
 {% endblock %}
 </body>

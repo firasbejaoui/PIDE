@@ -1,0 +1,9 @@
+showFoundations:
+  path:     /
+  defaults: { _controller: "AppBundle:Foundation:showFoundations" }
+show_foundation:
+  path:     /{id}
+  defaults: { _controller: "AppBundle:Foundation:showFoundation" }
+join_foundation:
+  path:     /join/{id}
+  defaults: { _controller: "AppBundle:Foundation:join" }

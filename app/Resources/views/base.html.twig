@@ -88,27 +88,8 @@
                         <nav>
                             <ul>
                                 <li><a href="index.html">home <i class="fa fa-angle-down"></i></a></li>
-                                <li><a href="causes.html">CAUSE  </a></li>
-                                <li><a href="event.html">EVENTS </a></li>
-                                <li><a href="#">PAGES  <i class="fa fa-angle-down"></i></a>
-                                    <ul>
-                                        <li><a href="about-us.html">about us</a></li>
-                                        <li><a href="causes.html">causes page</a></li>
-                                        <li><a href="event.html">event page</a></li>
-                                        <li><a href="gallery.html">gallery page</a></li>
-                                        <li><a href="volunteer.html">volunteer </a></li>
-                                        <li><a href="contact.html">contact us</a></li>
-                                        <li><a href="event-details.html">event details</a></li>
-                                        <li><a href="causes-details.html">causes details</a></li>
-                                        <li><a href="become-volunteer.html">become volunteer</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="blog.html">BLOG <i class="fa fa-angle-down"></i></a>
-                                    <ul>
-                                        <li><a href="blog.html">blog page</a></li>
-                                        <li><a href="blog-details.html">blog details </a></li>
-                                    </ul>
-                                </li>
+                                <li><a href="{{ path('showFoundations') }}">Foundations </a></li>
+                                <li><a href="{{ path('showEvents') }}">EVENTS </a></li>
                                 <li><a href="contact.html">CONTACT </a></li>
                                 {% if app.user == null %}
                                 <li><a href="{{ path('fos_user_security_login') }}">Login </a></li>
@@ -321,5 +302,6 @@
 <script src="{{ asset('') }}assets/js/owl.carousel.min.js"></script>
 <script src="{{ asset('') }}assets/js/plugins.js"></script>
 <script src="{{ asset('') }}assets/js/main.js"></script>
+
 </body>
 </html>

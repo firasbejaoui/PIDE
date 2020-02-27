@@ -54,7 +54,7 @@ class Event
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Foundation")
-     * @ORM\JoinColumn(name="categorie", referencedColumnName="id")
+     * @ORM\JoinColumn(name="foundation", referencedColumnName="id")
      */
 
     private $foundation;

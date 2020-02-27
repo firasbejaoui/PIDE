@@ -16,3 +16,9 @@ foundation_edit:
 foundation_delete:
     path:     /{id}/delete
     defaults: { _controller: "AppBundle:Foundation:delete" }
+show_members:
+    path:     /members
+    defaults: { _controller: "AppBundle:Foundation:membres" }
+approuve_foundation:
+    path:     /approuve/{id}
+    defaults: { _controller: "AppBundle:Foundation:approve" }

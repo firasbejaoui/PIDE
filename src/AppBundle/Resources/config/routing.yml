@@ -2,3 +2,10 @@ app_admin:
     resource: "@AppBundle/Resources/config/adminrouting.yml"
     prefix:   /admin
 
+app_front:
+    resource: "@AppBundle/Resources/config/eventFront.yml"
+    prefix:   /events
+
+app_foundation:
+    resource: "@AppBundle/Resources/config/foundationFront.yml"
+    prefix:   /foundations
